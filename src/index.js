@@ -18,7 +18,7 @@ const SearchForm = () => {
     {
       title: '性别',
       dataIndex: 'gender',
-      key: 'sex'
+      key: 'gender'
     }
   ];
 
@@ -57,7 +57,7 @@ const SearchForm = () => {
           result.push({
             key: i,
             name: queryValue,
-            sex: queryValue.charCodeAt() % 2 === 0 ? '男性' : '女性'
+            gender: queryValue.charCodeAt() % 2 === 0 ? '男性' : '女性'
           });
         }
       });
