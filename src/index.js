@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
-import ReactDOM from "react-dom";
-import "antd/dist/antd.css";
-import "./index.css";
-import { Form, Row, Col, Input, Button, Table } from "antd";
-import { DownOutlined, UpOutlined } from "@ant-design/icons";
+import React, { useState, useEffect } from 'react';
+import ReactDOM from 'react-dom';
+import 'antd/dist/antd.css';
+import './index.css';
+import { Form, Row, Col, Input, Button, Table } from 'antd';
+import { DownOutlined, UpOutlined } from '@ant-design/icons';
 
 const SearchForm = () => {
   const [expand, setExpand] = useState(false);
@@ -11,14 +11,14 @@ const SearchForm = () => {
   const [form] = Form.useForm();
   const columns = [
     {
-      title: "姓名",
-      dataIndex: "name",
-      key: "name"
+      title: '姓名',
+      dataIndex: 'name',
+      key: 'name'
     },
     {
-      title: "性别",
-      dataIndex: "sex",
-      key: "sex"
+      title: '性别',
+      dataIndex: 'gender',
+      key: 'sex'
     }
   ];
 
@@ -35,7 +35,7 @@ const SearchForm = () => {
             rules={[
               {
                 required: i === 0,
-                message: "搜索信息必填"
+                message: '搜索信息必填'
               }
             ]}
           >
@@ -49,7 +49,7 @@ const SearchForm = () => {
   };
 
   const getDatasource = async (query = {}) => {
-    const result = await new Promise((resolve) => {
+    const result = await new Promise(resolve => {
       const result = [];
       Object.keys(query).forEach((queryKey, i) => {
         const queryValue = query[queryKey];
@@ -57,7 +57,7 @@ const SearchForm = () => {
           result.push({
             key: i,
             name: queryValue,
-            sex: queryValue.charCodeAt() % 2 === 0 ? "男性" : "女性"
+            sex: queryValue.charCodeAt() % 2 === 0 ? '男性' : '女性'
           });
         }
       });
@@ -70,9 +70,9 @@ const SearchForm = () => {
     getDatasource();
   }, []);
 
-  const onSearch = (query) => {
+  const onSearch = query => {
     getDatasource(query);
-    console.log("Received values of form: ", query);
+    console.log('Received values of form: ', query);
   };
 
   return (
@@ -88,7 +88,7 @@ const SearchForm = () => {
           <Col
             span={24}
             style={{
-              textAlign: "right"
+              textAlign: 'right'
             }}
           >
             <Button type="primary" htmlType="submit">
@@ -96,7 +96,7 @@ const SearchForm = () => {
             </Button>
             <Button
               style={{
-                margin: "0 8px"
+                margin: '0 8px'
               }}
               onClick={() => {
                 form.resetFields();
@@ -137,5 +137,5 @@ ReactDOM.render(
   <div>
     <SearchForm />
   </div>,
-  document.getElementById("container")
+  document.getElementById('container')
 );
